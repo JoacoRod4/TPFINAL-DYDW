@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Involucrate | La Casa de las Patitas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<nav class="nav">
+    <div class="nav-left">
+        <a href="portada.html">
+            <img src="imagenesONG/logo1ong.png" class="logo" alt="logo ong">
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="portada.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="involucrate.html">Involucrate</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    <div class="kebab-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="overlay" id="overlay">
+    <ul>
+        <li><a href="portada.html" onclick="toggleMenu()">Inicio</a></li>
+        <li><a href="nosotros.html" onclick="toggleMenu()">Nosotros</a></li>
+        <li><a href="proyectos.html" onclick="toggleMenu()">Proyectos</a></li>
+        <li><a href="involucrate.html" onclick="toggleMenu()">Involucrate</a></li>
+        <li><a href="contacto.html" onclick="toggleMenu()">Contacto</a></li>
+    </ul>
+</div>
+
+<header class="hero">
+    <img src="imagenesONG/involucrateong.jpg">
+    <h2 class="hero-texto">Involucrate</h2>
+</header>
+
+<div class="container">
+
+<section class="bloque fade-in">
+    <h2>Donaciones</h2>
+    <div class="proyectos-simple">
+        <div class="proyecto-item"><h3>Alimento</h3><p>Pienso seco y húmedo.</p></div>
+        <div class="proyecto-item"><h3>Dinero</h3><p>Para tratamientos y traslados.</p></div>
+        <div class="proyecto-item"><h3>Insumos médicos</h3><p>Gasas, vendas, suero.</p></div>
+        <div class="proyecto-item"><h3>Frazadas y juguetes</h3><p>Abrigo y bienestar.</p></div>
+    </div>
+</section>
+
+<section class="bloque fade-in">
+    <h2>Voluntariado</h2>
+    <p style="text-align:center; font-size:19px; margin-bottom:25px;">
+        Sumate a nuestras actividades y ayudanos a mejorar la vida de los animales rescatados.
+    </p>
+    <div class="proyectos-simple">
+        <div class="proyecto-item">
+            <h3>Paseo de perros</h3>
+            <p>Colaborá ejercitando y sociabilizando a los perros del refugio.</p>
+        </div>
+        <div class="proyecto-item">
+            <h3>Aseo del refugio</h3>
+            <p>Ayudá a mantener limpios los espacios, cunas y patios.</p>
+        </div>
+        <div class="proyecto-item">
+            <h3>Hogar de tránsito</h3>
+            <p>Brindá tu hogar temporalmente para la recuperación de un rescatado.</p>
+        </div>
+    </div>
+</section>
+
+<section class="bloque fade-in">
+    <h2>Calculadora de Impacto</h2>
+
+    <div class="formulario-simple">
+        <label>Kilos de alimento:</label>
+        <input type="number" id="kg">
+
+        <label>Dinero ($):</label>
+        <input type="number" id="dinero">
+
+        <label>Horas de voluntariado:</label>
+        <input type="number" id="horas">
+
+        <button onclick="calcularImpacto()" class="boton">Calcular</button>
+
+        <p id="resultado" style="font-weight:bold;"></p>
+    </div>
+</section>
+
+<section class="bloque fade-in">
+    <h2>Formularios</h2>
+    <div class="proyectos-simple">
+        <div class="proyecto-item">
+            <h3>Formulario de Adopción</h3>
+            <form class="formulario-simple">
+                <input type="text" placeholder="Nombre completo">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Experiencia">
+                <button class="boton">Enviar</button>
+            </form>
+        </div>
+        <div class="proyecto-item">
+            <h3>Formulario de Voluntariado</h3>
+            <form class="formulario-simple">
+                <input type="text" placeholder="Nombre completo">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Actividad">
+                <button class="boton">Enviar</button>
+            </form>
+        </div>
+        <div class="proyecto-item">
+            <h3>Formulario de Contacto</h3>
+            <form class="formulario-simple">
+                <input type="text" placeholder="Nombre completo">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Consulta"></textarea>
+                <button class="boton">Enviar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 La Casa de las Patitas</p>
+</footer>
+
+</div>
+
+<script>
+function calcularImpacto() {
+    let kg = Number(document.getElementById("kg").value) || 0;
+    let dinero = Number(document.getElementById("dinero").value) || 0;
+    let horas = Number(document.getElementById("horas").value) || 0;
+
+    
+    let animales = Math.floor((kg * 2) + (dinero / 500) + (horas * 1));
+    let dias = 0;
+
+    if (kg > 0 || horas > 0) {
+        dias = Math.floor((kg * 1.5) + (horas * 0.5));
+        if (dias < 1) dias = 1; 
+    } else if (dinero > 0) {
+        dias = 1; 
+    }
+
+    if (animales < 1) animales = 1; 
+
+    document.getElementById("resultado").innerText =
+        "Con tu ayuda se alimenta a " + animales + " animales durante " + dias + " días.";
+}
+</script>
+
+<script>
+function toggleMenu() {
+    document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const elementos = document.querySelectorAll(".fade-in");
+
+    function mostrar() {
+        elementos.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add("visible");
+            }
+        });
+    }
+
+    mostrar();
+    window.addEventListener("scroll", mostrar);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Casa de las Patitas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+
+        <div class="nav-left">
+            <a href="portada.html">
+                <img src="imagenesONG/logo1ong.png" class="logo" alt="logo ong">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="portada.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="involucrate.html">Involucrate</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+        
+        <div class="kebab-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+
+<div class="overlay" id="overlay">
+    <ul>
+        <li><a href="portada.html" onclick="toggleMenu()">Inicio</a></li>
+        <li><a href="nosotros.html" onclick="toggleMenu()">Nosotros</a></li>
+        <li><a href="proyectos.html" onclick="toggleMenu()">Proyectos</a></li>
+        <li><a href="involucrate.html" onclick="toggleMenu()">Involucrate</a></li>
+        <li><a href="contacto.html" onclick="toggleMenu()">Contacto</a></li>
+    </ul>
+</div>
+
+
+
+
+    <header id="inicio" class="hero">
+        <img src="imagenesONG/heroong.jpg" alt="imagen hero">
+        <h2 class="hero-texto">
+            <span class="resaltar">Un refugio,</span><br>
+            mil oportunidades.
+        </h2>
+    </header>
+
+    <section class="seccion izquierda fade-in" id="introduccion">
+        <div class="texto">
+            <h2>Introducción</h2>
+            <p>
+                En La Casa de las Patitas trabajamos cada día para rescatar, cuidar y dar una segunda oportunidad a perros que han sido abandonados o se encuentran en situación de vulnerabilidad. Creemos en la adopción responsable, el cariño y el trabajo comunitario como herramientas para transformar vidas. Vos también podés ser parte de este cambio: adoptá, doná o sumate como voluntario.
+            </p>
+        </div>
+        <div class="imagen">
+            <img src="imagenesONG/img2ong.jpg" alt="perritos">
+        </div>
+    </section>
+
+    <section class="seccion derecha fade-in" id="proyectos">
+        <div class="texto">
+            <h2>Nuestros Proyectos</h2>
+            <ul>
+                <li>Rescate y Atención Veterinaria</li>
+                <li>Hogares de Tránsito</li>
+                <li>Adopciones Responsables</li>
+                <li>Educación y Concientización</li>
+            </ul>
+
+            <a href="proyectos.html" class="boton">Leer más sobre nuestros proyectos</a>
+        </div>
+
+        <div class="imagen">
+            <img src="imagenesONG/img1ong.jpg" alt="imagen proyectos">
+        </div>
+    </section>
+
+    <section class="seccion izquierda fade-in" id="ayudar">
+        <div class="texto">
+            <h2>¿Cómo Podés Ayudar?</h2>
+            <p>Podes colaborar de distintas maneras:</p>
+
+            <div class="ayuda-lista">
+                <a href="involucrate.html#formularios" class="ayuda-item">Donaciones 💳</a>
+                <a href="involucrate.html#formularios" class="ayuda-item">Voluntariado 💛</a>
+                <a href="involucrate.html#formularios" class="ayuda-item">Hogar de Tránsito 🏠</a>
+            </div>
+        </div>
+
+        <div class="imagen">
+            <img src="imagenesONG/img3ong.jpg" alt="ayuda">
+        </div>
+    </section>
+
+    <section class="seccion derecha fade-in" id="contacto">
+        <div class="texto">
+            <h2>Contacto</h2>
+            <p>Email: lacasadelaspatitas@gmail.com</p>
+            <p>Teléfono: (011) 5555-4422</p>
+        </div>
+        <div class="imagen">
+            <img src="imagenesONG/img4ong.jpg" alt="contacto">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 La Casa de las Patitas</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("overlay").classList.toggle("active");
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elementos = document.querySelectorAll(".fade-in");
+
+            function mostrar() {
+                elementos.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            mostrar();
+            window.addEventListener("scroll", mostrar);
+        });
+    </script>
+
+
+
+</body>
+</html>

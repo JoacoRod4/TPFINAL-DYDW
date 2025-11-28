@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | La Casa de las Patitas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+
+<body>
+
+<nav class="nav">
+
+    <div class="nav-left">
+        <a href="portada.html">
+            <img src="imagenesONG/logo1ong.png" class="logo" alt="logo ong">
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="portada.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="involucrate.html">Involucrate</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+
+    <div class="kebab-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+
+<div class="overlay" id="overlay">
+    <ul>
+        <li><a href="portada.html" onclick="toggleMenu()">Inicio</a></li>
+        <li><a href="nosotros.html" onclick="toggleMenu()">Nosotros</a></li>
+        <li><a href="proyectos.html" onclick="toggleMenu()">Proyectos</a></li>
+        <li><a href="involucrate.html" onclick="toggleMenu()">Involucrate</a></li>
+        <li><a href="contacto.html" onclick="toggleMenu()">Contacto</a></li>
+    </ul>
+</div>
+
+
+
+<header class="hero">
+    <img src="imagenesONG/heronosotrosong.png">
+    <h2 class="hero-texto hero-nosotros-texto">Nosotros</h2>
+</header>
+
+<div class="container">
+
+<section class="bloque fade-in">
+    <h2>Misión, Visión y Valores</h2>
+
+    <div class="mvv-grid">
+
+        <div class="mvv-card">
+            <h3>Misión</h3>
+            <p>Brindar un espacio seguro donde animales abandonados puedan recuperarse, recibir atención integral y encontrar familias responsables.</p>
+        </div>
+
+        <div class="mvv-card">
+            <h3>Visión</h3>
+            <p>Ser una ONG que inspire a la comunidad a adoptar, cuidar y respetar a todos los animales.</p>
+        </div>
+
+        <div class="mvv-card">
+            <h3>Valores</h3>
+            <ul>
+                <li>Respeto</li>
+                <li>Cuidado integral</li>
+                <li>Empatía</li>
+                <li>Compromiso</li>
+                <li>Amor por los animales</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section class="bloque fade-in">
+    <h2>Nuestra Historia</h2>
+
+    <p class="historia-texto">
+        La Casa de las Patitas nació como un pequeño proyecto comunitario dedicado a rescatar animales en situación de vulnerabilidad. 
+        Con el tiempo, gracias al apoyo de vecinos y voluntarios, se transformó en una ONG que hoy brinda contención, refugio y amor 
+        a decenas de perros cada mes.
+    </p>
+
+    <img src="imagenesONG/historiaong.png" class="historia-img">
+</section>
+
+<section class="bloque fade-in">
+    <h2>Nuestro Equipo</h2>
+
+    <div class="equipo-grid">
+
+        <div class="persona">
+            <img src="imagenesONG/fundadoresong.png">
+            <h4>Fundadores</h4>
+        </div>
+
+        <div class="persona">
+            <img src="imagenesONG/cuidadoresong.png">
+            <h4>Cuidadores/as</h4>
+        </div>
+
+        <div class="persona">
+            <img src="imagenesONG/veterinariosong.png">
+            <h4>Veterinarios/as</h4>
+        </div>
+
+        <div class="persona">
+            <img src="imagenesONG/fotografaong.png">
+            <h4>Fotógrafo / Redes</h4>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 La Casa de las Patitas</p>
+</footer>
+
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elementos = document.querySelectorAll(".fade-in");
+
+            function mostrar() {
+                elementos.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            mostrar();
+            window.addEventListener("scroll", mostrar);
+        });
+    </script>
+
+
+
+</body>
+</html>
+
+
+

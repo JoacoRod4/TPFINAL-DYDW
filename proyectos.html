@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | La Casa de las Patitas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<script>
+function nextImage(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const images = slider.getElementsByTagName("img");
+
+    let index = 0;
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].classList.contains("active")) {
+            images[i].classList.remove("active");
+            index = (i + 1) % images.length;
+            break;
+        }
+    }
+    images[index].classList.add("active");
+}
+
+function prevImage(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const images = slider.getElementsByTagName("img");
+
+    let index = 0;
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].classList.contains("active")) {
+            images[i].classList.remove("active");
+            index = (i - 1 + images.length) % images.length;
+            break;
+        }
+    }
+    images[index].classList.add("active");
+}
+</script>
+
+
+<body>
+
+<nav class="nav">
+
+    <div class="nav-left">
+        <a href="portada.html">
+            <img src="imagenesONG/logo1ong.png" class="logo" alt="logo ong">
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="portada.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="involucrate.html">Involucrate</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    
+    <div class="kebab-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+
+<div class="overlay" id="overlay">
+    <ul>
+        <li><a href="portada.html" onclick="toggleMenu()">Inicio</a></li>
+        <li><a href="nosotros.html" onclick="toggleMenu()">Nosotros</a></li>
+        <li><a href="proyectos.html" onclick="toggleMenu()">Proyectos</a></li>
+        <li><a href="involucrate.html" onclick="toggleMenu()">Involucrate</a></li>
+        <li><a href="contacto.html" onclick="toggleMenu()">Contacto</a></li>
+    </ul>
+</div>
+
+
+
+
+<header class="hero">
+    <img src="imagenesONG/proyectosong.jpg">
+    <h2 class="hero-texto">Proyectos</h2>
+</header>
+
+<main class="container">
+
+<section class="bloque fade-in">
+    <h2>Lista de Proyectos</h2>
+
+    <div class="proyectos-simple">
+
+        <div class="proyecto-item">
+            <h3>Rescate y Atención Veterinaria</h3>
+            <p>• Rescate<br>• Atención médica<br>• Vacunación</p>
+        </div>
+
+        <div class="proyecto-item">
+            <h3>Hogares de Tránsito</h3>
+            <p>• Familias temporales<br>• Seguimiento</p>
+        </div>
+
+        <div class="proyecto-item">
+            <h3>Adopciones Responsables</h3>
+            <p>• Evaluación<br>• Seguimiento</p>
+        </div>
+
+        <div class="proyecto-item">
+            <h3>Educación y Concientización</h3>
+            <p>• Charlas<br>• Campañas</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="bloque fade-in">
+    <h2>Galería de proyectos</h2>
+
+    <div class="galeria">
+        <div class="slider" id="slider-proyectos">
+            <img src="imagenesONG/atencionmedicaong.png" class="active">
+            <img src="imagenesONG/rescateong.png">
+            <img src="imagenesONG/charlaong.png">
+            <img src="imagenesONG/campañaong.png">
+            <img src="imagenesONG/adopcionong.png">
+        </div>
+
+        <div class="slider-botones">
+            <button onclick="prevImage('slider-proyectos')">Atrás</button>
+            <button onclick="nextImage('slider-proyectos')">Adelante</button>
+        </div>
+    </div>
+
+    <br><br>
+
+    <h2>Galería de familias contentas</h2>
+
+    <div class="galeria">
+        <div class="slider" id="slider-familias">
+            <img src="imagenesONG/familiasfelicesong1.png" class="active">
+            <img src="imagenesONG/familiasfelicesong2.png">
+            <img src="imagenesONG/familiasfelicesong3.png">
+            <img src="imagenesONG/familiasfelicesong4.png">
+            <img src="imagenesONG/familiasfelicesong5.png">
+        </div>
+
+        <div class="slider-botones">
+            <button onclick="prevImage('slider-familias')">Atrás</button>
+            <button onclick="nextImage('slider-familias')">Adelante</button>
+        </div>
+    </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2025 La Casa de las Patitas</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("overlay").classList.toggle("active");
+    }
+</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elementos = document.querySelectorAll(".fade-in");
+
+            function mostrar() {
+                elementos.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            mostrar();
+            window.addEventListener("scroll", mostrar);
+        });
+    </script>
+
+
+</body>
+</html>
