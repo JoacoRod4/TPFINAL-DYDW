@@ -1,0 +1,100 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f0f0f; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 670px;
+}
+
+
+.linktree-container {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: #f5f5f5;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #3b82f6;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+
+h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+
+.p-bienvenida {
+    font-size: 16px;
+    color: #60a5fa;
+    margin: 8px 0;
+}
+
+
+.description {
+    font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link-button {
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.link-button:hover {
+    background-color: #2563eb;
+}
+
+/* Ajuste del slider para tablets y pantallas medianas */
+@media (min-width: 769px) and (max-width: 992px) {
+
+    .slider {
+        width: 80%;           /* ocupa buena parte de la pantalla */
+        max-width: 700px;     /* no se hace demasiado grande */
+        height: auto;         
+        aspect-ratio: 3/2;    /* mantiene proporción de ancho/alto */
+        margin: 30px auto;    
+    }
+
+    .slider-botones button {
+        padding: 10px 18px;  /* botones más grandes para tablets */
+        font-size: 16px;
+    }
+
+}
